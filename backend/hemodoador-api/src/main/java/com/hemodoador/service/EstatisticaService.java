@@ -8,7 +8,6 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 
 import com.hemodoador.model.Candidato;
-import com.hemodoador.repository.CandidatoRepository;
 
 import lombok.RequiredArgsConstructor;
 
@@ -16,14 +15,14 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class EstatisticaService {
 
-    private final CandidatoRepository candidatoRepository;
+    private final CandidatoService candidatoService;
 
     /**
      * Quantos candidatos temos nessa lista em cada estado do Brasil?
      * @return
      */
     public Map<String, Long> candidatosPorEstado() {
-        return candidatoRepository.countCandidatosPorEstado().stream()
+        return candidatoService.quantidadeCandidatosPorEstado().stream()
                 .collect(Collectors.toMap(
                         estado -> (String) estado[0],
                         quantidade -> (Long) quantidade[1]
@@ -35,7 +34,7 @@ public class EstatisticaService {
      * @return
      */
     public Map<String, Double> imcMedioPorFaixa() {
-        return candidatoRepository.findAll().stream()
+        return candidatoService.listar().stream()
             .collect(Collectors.groupingBy(c -> {
                 int idade = c.getIdade();
                 int faixa = (idade / 10) * 10;
@@ -48,7 +47,7 @@ public class EstatisticaService {
      * @return
      */
     public Map<String, Double> percentualObesos() {
-        List<Candidato> todos = candidatoRepository.findAll();
+        List<Candidato> todos = candidatoService.listar();
 
         return todos.stream().collect(Collectors.groupingBy( 
         	candidato -> candidato.getSexo().getCodigo(),
@@ -64,7 +63,7 @@ public class EstatisticaService {
      * @return
      */
     public Map<String, Double> idadeMediaPorTipoSanguineo() {
-        return candidatoRepository.findAll().stream()
+        return candidatoService.listar().stream()
             .collect(Collectors.groupingBy(
                 candidato -> candidato.getTipoSanguineo().getCodigo(),
                 Collectors.averagingInt(Candidato::getIdade)
@@ -76,7 +75,7 @@ public class EstatisticaService {
      * @return
      */
     public Map<String, Long> doadoresPorTipoReceptor() {
-        List<Candidato> aptos = candidatoRepository.findAll().stream()
+        List<Candidato> aptos = candidatoService.listar().stream()
             .filter(c -> c.getIdade() >= 16 && c.getIdade() <= 69)
             .filter(c -> c.getPeso() > 50)
             .toList();
