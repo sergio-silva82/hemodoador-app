@@ -1,0 +1,22 @@
+# =====================
+# IDEs (Eclipse / IntelliJ / VS Code)
+# =====================
+.project
+.classpath
+.settings/
+.idea/
+.vscode/
+
+# =====================
+# Java / Maven / Gradle
+# =====================
+target/
+*.class
+*.jar
+*.war
+*.ear
+
+# =====================
+# Logs
+# =====================
+*.log
