@@ -18,6 +18,10 @@ public class EstatisticaService {
 
     private final CandidatoRepository candidatoRepository;
 
+    /**
+     * Quantos candidatos temos nessa lista em cada estado do Brasil?
+     * @return
+     */
     public Map<String, Long> candidatosPorEstado() {
         return candidatoRepository.countCandidatosPorEstado().stream()
                 .collect(Collectors.toMap(
@@ -26,6 +30,10 @@ public class EstatisticaService {
                     ));
     }
 
+    /**
+     * IMC médio em cada faixa de idade de dez em dez anos: 0 a 10; 11 a 20; 21 a 30, etc. (IMC = peso / altura^2)
+     * @return
+     */
     public Map<String, Double> imcMedioPorFaixa() {
         return candidatoRepository.findAll().stream()
             .collect(Collectors.groupingBy(c -> {
@@ -35,6 +43,10 @@ public class EstatisticaService {
             }, Collectors.averagingDouble(Candidato::getImc)));
     }
 
+    /**
+     * Qual o percentual de obesos entre os homens e entre as mulheres? (É obeso quem tem IMC > 30)
+     * @return
+     */
     public Map<String, Double> percentualObesos() {
         List<Candidato> todos = candidatoRepository.findAll();
 
@@ -47,6 +59,10 @@ public class EstatisticaService {
         ));
     }
 
+    /**
+     * ual a média de idade para cada tipo sanguíneo?
+     * @return
+     */
     public Map<String, Double> idadeMediaPorTipoSanguineo() {
         return candidatoRepository.findAll().stream()
             .collect(Collectors.groupingBy(
@@ -55,6 +71,10 @@ public class EstatisticaService {
             ));
     }
 
+    /**
+     * A quantidade de possíveis doadores para cada tipo sanguíneo receptor.
+     * @return
+     */
     public Map<String, Long> doadoresPorTipoReceptor() {
         List<Candidato> aptos = candidatoRepository.findAll().stream()
             .filter(c -> c.getIdade() >= 16 && c.getIdade() <= 69)
