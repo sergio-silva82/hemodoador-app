@@ -6,6 +6,7 @@ import lombok.Setter;
 import lombok.NoArgsConstructor;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Getter
@@ -19,23 +20,38 @@ public class Endereco {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 8)
+    @Column
     private String cep;
 
-    @Column(length = 200)
+    @Column
     private String logradouro;
 
     private Integer numero;
 
-    @Column(length = 100)
+    @Column
     private String bairro;
 
-    @Column(length = 100)
+    @Column
     private String cidade;
 
-    @Column(length = 2)
+    @Column
     private String estado;
 
     @ManyToMany(mappedBy = "enderecos")
     private Set<Candidato> candidatos = new HashSet<>();
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Endereco)) return false;
+        Endereco e = (Endereco) o;
+        return Objects.equals(cep, e.cep) &&
+               Objects.equals(numero, e.numero);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(cep, numero);
+    }
+
 }
