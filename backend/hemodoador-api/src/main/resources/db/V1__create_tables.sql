@@ -1,3 +1,5 @@
+use hemodoador;
+
 CREATE TABLE candidato (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     cpf VARCHAR(20) NOT NULL UNIQUE,
@@ -8,15 +10,15 @@ CREATE TABLE candidato (
     mae VARCHAR(200),
     pai VARCHAR(200),
     email VARCHAR(200),
-    altura DECIMAL(4,2),
-    peso DECIMAL(5,2),
+    altura FLOAT,
+    peso FLOAT,
     tipo_sanguineo VARCHAR(3) NOT NULL
 );
 
 CREATE TABLE telefone (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     candidato_id BIGINT NOT NULL,
-    tipo ENUM('FIXO','CELULAR'),
+    tipo VARCHAR(10) NOT NULL,
     numero VARCHAR(30),
     FOREIGN KEY (candidato_id) REFERENCES candidato(id)
 );
@@ -24,11 +26,11 @@ CREATE TABLE telefone (
 CREATE TABLE endereco (
 	id BIGINT PRIMARY KEY AUTO_INCREMENT,
 	cep VARCHAR(20),
-    endereco VARCHAR(200),
+    logradouro VARCHAR(200),
     numero INT,
     bairro VARCHAR(100),
     cidade VARCHAR(100),
-    estado CHAR(2)	
+    estado VARCHAR(2)	
 );
 
 CREATE TABLE candidato_endereco (
@@ -40,8 +42,8 @@ CREATE TABLE candidato_endereco (
 );
 
 CREATE TABLE usuario (
-  id BIGINT PRIMARY KEY AUTO_INCREMENT,
+  id BIGINT AUTO_INCREMENT PRIMARY KEY,
   username VARCHAR(50) UNIQUE,
   password VARCHAR(255),
-  role VARCHAR(30)
+  regra VARCHAR(10)
 );
