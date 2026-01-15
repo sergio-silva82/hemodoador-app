@@ -42,3 +42,9 @@ Crie um banco de dados no MySQL:
 
 ```sql
 CREATE DATABASE hemodoador;
+```
+
+rode os script conforme ordem do nome:
+
+- V1__create_tables.sql
+- V2__insert_usuario.sql
