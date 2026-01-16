@@ -28,6 +28,9 @@ public class CandidatoService {
     public void importar(List<CandidatoDTO> lista) {
         lista.forEach(dto -> {
             Candidato candidato = candidatoMapper.toEntity(dto);
+    		if (candidatoRepository.findByCpf(candidato.getCpf()).isPresent()) {
+            	return;
+            }
             candidatoRepository.save(candidato);
         });
     }

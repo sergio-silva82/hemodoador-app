@@ -70,7 +70,7 @@ public class Candidato {
     @Convert(converter = TipoSanguineoConverter.class)
     private TipoSanguineo tipoSanguineo;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
         name = "candidato_endereco",
         joinColumns = @JoinColumn(name = "candidato_id"),

@@ -8,6 +8,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.Named;
+import org.springframework.stereotype.Component;
 
 import com.hemodoador.dto.CandidatoDTO;
 import com.hemodoador.model.Candidato;

@@ -59,7 +59,7 @@ public class EstatisticaService {
     }
 
     /**
-     * ual a média de idade para cada tipo sanguíneo?
+     * Qual a média de idade para cada tipo sanguíneo?
      * @return
      */
     public Map<String, Double> idadeMediaPorTipoSanguineo() {
