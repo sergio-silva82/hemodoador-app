@@ -12,7 +12,8 @@ CREATE TABLE candidato (
     email VARCHAR(200),
     altura FLOAT,
     peso FLOAT,
-    tipo_sanguineo VARCHAR(3) NOT NULL
+    tipo_sanguineo VARCHAR(3) NOT NULL,
+    INDEX idx_cpf (cpf)
 );
 
 CREATE TABLE telefone (
