@@ -34,9 +34,10 @@ Interface web para interação com os usuários
 Consome a API do backend
 
 ### Como rodar
+```bash
 cd hemodoador-ui
 npm install
 ng serve
-
+```
 📌 Observação
 Certifique-se de que o backend esteja rodando antes de iniciar o frontend, para que a UI consiga se comunicar com a API.
