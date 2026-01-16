@@ -1,0 +1,88 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Container principal */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Título */
+h3 {
+  font-weight: 600;
+  color: #333;
+}
+
+.btn-primary  {
+  width: 100%;
+  background: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+button:disabled {
+  background: #999;
+}
+
+.error {
+  color: red;
+  font-size: 0.85em;
+  margin-top: 5px;
+}
+
+/* Botão voltar */
+button.btn {
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+/* Grid responsivo */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.col-md-6 {
+  flex: 1 1 calc(50% - 1rem);
+  min-width: 300px;
+}
+
+/* Cartões */
+.card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.card h5 {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: #444;
+}
+
+/* Canvas responsivo */
+canvas {
+  width: 100% !important;
+  height: auto !important;
+}
+
+/* Responsividade extra para telas pequenas */
+@media (max-width: 768px) {
+  .col-md-6 {
+    flex: 1 1 100%;
+  }
+}

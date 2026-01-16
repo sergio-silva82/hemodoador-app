@@ -1,0 +1,19 @@
+<div class="container mt-4">
+  <h3 class="text-center mb-4">Importar candidatos</h3>
+
+  <button (click)="irParaDashboard()" class="btn btn-secondary">Ir para Dashboard</button>
+
+  <div class="form-group">
+    <label for="fileInput" class="custom-file-upload">
+      📂 {{ labelTexto }}
+    </label>
+    <input id=fileInput type="file" (change)="onFileSelected($event)">
+  </div>
+
+  <button class="btn btn-primary mt-3" (click)="enviar()">Enviar</button>
+
+  <div class="alert alert-success mt-3" >
+    {{mensagem}}
+  </div>
+
+</div>

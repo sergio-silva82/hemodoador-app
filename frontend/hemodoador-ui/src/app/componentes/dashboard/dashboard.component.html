@@ -1,0 +1,49 @@
+<div class="container mt-4">
+
+  <h3 class="text-center mb-4">📊 Dashboard Hemocentro</h3>
+  
+  <button (click)="voltar()" class="btn btn-secondary"> Voltar</button>
+
+  <div class="row">
+    <div class="col-md-6 mb-4">
+      <div class="card p-3 shadow">
+        <h5>Candidatos por Estado</h5>
+        <canvas id="estadoChart"></canvas>
+      </div>
+    </div>
+
+    <div class="col-md-6 mb-4">
+      <div class="card p-3 shadow">
+        <h5>IMC médio por faixa de idade</h5>
+        <canvas id="imcChart"></canvas>
+      </div>
+    </div>
+    
+    <div class="col-md-6 mb-4">
+      <div class="card p-3 shadow">
+        <h5>Doadores por tipo receptor</h5>
+        <canvas id="doadoresChart"></canvas>
+      </div>
+    </div>
+
+    <div class="col-md-6 mb-4">
+      <div class="card p-3 shadow">
+        <h5>Média de idade por tipo Sanguíneo</h5>
+        <canvas id="idadeTipoChart"></canvas>
+      </div>
+    </div>
+
+    <div class="col-md-6 mb-4">
+      <div class="card p-3 shadow">
+        <h5>Porcentagem de obesos (IMC &gt; 30)</h5>
+        <canvas id="obesosChart"></canvas>
+      </div>
+    </div>
+
+    <div class="col-md-6 mb-4">
+      <div></div>
+    </div>
+
+  </div>
+
+</div>
